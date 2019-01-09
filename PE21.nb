@@ -1,0 +1,148 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5132,        138]
+NotebookOptionsPosition[      4323,        117]
+NotebookOutlinePosition[      4682,        133]
+CellTagsIndexPosition[      4639,        130]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Let d(n) be defined as the sum of proper divisors of n (numbers less than n \
+which divide evenly into n).
+If d(a) = b and d(b) = a, where a \[NotEqual] b, then a and b are an amicable \
+pair and each of a and b are called amicable numbers.
+
+For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, \
+55 and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, \
+71 and 142; so d(284) = 220.
+
+Evaluate the sum of all the amicable numbers under 10000.
+
+Note: problem here was that f[n]must not be equal to n, Asks for amicable \
+PAIRS not numbers...a bit misleading\
+\>", "Text",
+ CellChangeTimes->{{3.7298728380495033`*^9, 
+  3.7298728901591682`*^9}},ExpressionUUID->"1c220bf3-698b-474c-8124-\
+e47698ceaebb"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f", "[", "a_", "]"}], ":=", 
+  RowBox[{"Total", "[", 
+   RowBox[{
+    RowBox[{"Divisors", "[", "a", "]"}], "[", 
+    RowBox[{"[", 
+     RowBox[{"1", ";;", 
+      RowBox[{"-", "2"}]}], "]"}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7298705868073874`*^9, 3.729870605177093*^9}, {
+  3.729870772093844*^9, 3.729870783266507*^9}, {3.729870895791258*^9, 
+  3.729871027642508*^9}, {3.729872821684189*^9, 
+  3.7298728303710127`*^9}},ExpressionUUID->"ce1d01cf-41a4-4231-8114-\
+a65ec7a5b749"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"function", "[", "n_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"total", "=", 
+       RowBox[{"f", "[", "n", "]"}]}], "}"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"f", "[", "total", "]"}], "\[Equal]", "n"}], " ", "&&", " ", 
+      RowBox[{
+       RowBox[{"f", "[", "n", "]"}], "\[NotEqual]", "n"}]}]}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.729871239655066*^9, 3.729871367932856*^9}, {
+  3.729871405649274*^9, 3.729871407682982*^9}, {3.729871627438486*^9, 
+  3.729871637185486*^9}, {3.729872528583269*^9, 3.7298725335189333`*^9}, {
+  3.729872603271742*^9, 3.729872624912065*^9}, {3.729872740810947*^9, 
+  3.729872743483226*^9}},ExpressionUUID->"ecee3bdd-21ea-4725-9731-\
+1e3f9b6f6317"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"list", "=", 
+   RowBox[{"Array", "[", 
+    RowBox[{"function", ",", "10001", ",", "2"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.729871716618061*^9, 3.729871728824127*^9}, {
+  3.7298717612900763`*^9, 3.729871763361348*^9}, {3.729871797761984*^9, 
+  3.729871807188684*^9}, {3.7298718436763277`*^9, 3.7298718801494837`*^9}, {
+  3.729871911965229*^9, 3.729871932875567*^9}, {3.729872083089419*^9, 
+  3.729872086177492*^9}, {3.7298722194817963`*^9, 3.7298722356287727`*^9}, {
+  3.729872644719717*^9, 3.729872696032789*^9}, {3.7298727550105057`*^9, 
+  3.729872757194457*^9}},ExpressionUUID->"9da89f72-f0ca-40a4-a8b0-\
+6db2666736e6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Total", "[", 
+   RowBox[{
+    RowBox[{"Position", "[", 
+     RowBox[{"list", ",", "True"}], "]"}], "+", "1"}], "]"}], 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.729871874760035*^9, 3.72987188958703*^9}, {
+  3.729871941114497*^9, 3.729871993125361*^9}, {3.729872031701499*^9, 
+  3.729872031925736*^9}, {3.729872096867125*^9, 3.72987209971411*^9}, {
+  3.72987264908354*^9, 3.729872650031404*^9}, {3.7298727011700706`*^9, 
+  3.7298727165695457`*^9}, {3.7298727632478724`*^9, 
+  3.729872763720459*^9}},ExpressionUUID->"638f3878-4e98-4b85-8327-\
+ce71bc891d99"],
+
+Cell[BoxData[
+ RowBox[{"{", "31626", "}"}]], "Output",
+ CellChangeTimes->{
+  3.7298720325102043`*^9, {3.729872089675918*^9, 3.72987210022151*^9}, {
+   3.7298722235888577`*^9, 3.7298722401151447`*^9}, {3.7298726289711437`*^9, 
+   3.729872716988996*^9}, 
+   3.729872764002071*^9},ExpressionUUID->"1a1aaca2-8f91-44e6-93d8-\
+657d5f3e7b67"]
+}, Open  ]]
+},
+WindowSize->{808, 567},
+WindowMargins->{{Automatic, 56}, {Automatic, 21}},
+FrontEndVersion->"11.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 753, 17, 242, "Text",ExpressionUUID->"1c220bf3-698b-474c-8124-e47698ceaebb"],
+Cell[1314, 39, 525, 13, 30, "Input",ExpressionUUID->"ce1d01cf-41a4-4231-8114-a65ec7a5b749"],
+Cell[1842, 54, 822, 20, 52, "Input",ExpressionUUID->"ecee3bdd-21ea-4725-9731-1e3f9b6f6317"],
+Cell[2667, 76, 670, 12, 30, "Input",ExpressionUUID->"9da89f72-f0ca-40a4-a8b0-6db2666736e6"],
+Cell[CellGroupData[{
+Cell[3362, 92, 607, 13, 52, "Input",ExpressionUUID->"638f3878-4e98-4b85-8327-ce71bc891d99"],
+Cell[3972, 107, 335, 7, 34, "Output",ExpressionUUID->"1a1aaca2-8f91-44e6-93d8-657d5f3e7b67"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

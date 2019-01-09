@@ -1,0 +1,134 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4292,        126]
+NotebookOptionsPosition[      3760,        108]
+NotebookOutlinePosition[      4119,        124]
+CellTagsIndexPosition[      4076,        121]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Project Euler #47
+The first two consecutive numbers to have two distinct prime factors are:
+
+14 = 2 \[Times] 7
+15 = 3 \[Times] 5
+
+The first three consecutive numbers to have three distinct prime factors are:
+
+644 = 2\.b2 \[Times] 7 \[Times] 23
+645 = 3 \[Times] 5 \[Times] 43
+646 = 2 \[Times] 17 \[Times] 19.
+
+Find the first four consecutive integers to have four distinct prime factors \
+each. What is the first of these numbers?
+
+
+To find other consecutive with distinct primes we must change \
+\[OpenCurlyDoubleQuote]4\[CloseCurlyDoubleQuote] -->\[CloseCurlyDoubleQuote]n\
+\[CloseCurlyDoubleQuote](either 2 or 3 in this case) and \
+\[OpenCurlyDoubleQuote]{_,_,_,_}\[CloseCurlyDoubleQuote]-->\
+\[CloseCurlyDoubleQuote]{_,_,...n times}\[CloseCurlyDoubleQuote]\
+\>", "Text",
+ CellChangeTimes->{{3.728319930832062*^9, 3.7283201987201567`*^9}, {
+  3.7283202328589983`*^9, 3.7283202598949957`*^9}, {3.7283202937845087`*^9, 
+  3.7283204640225153`*^9}, {3.72832055579032*^9, 3.7283206080732727`*^9}, {
+  3.728320690886236*^9, 3.7283207692984867`*^9}, {3.7283208312620153`*^9, 
+  3.72832092625136*^9}, {3.728342593540943*^9, 
+  3.72834265915132*^9}},ExpressionUUID->"03ae4cc5-ffe3-48e5-a3bd-\
+25a95d63d13b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"list", "=", 
+     RowBox[{"Split", "[", 
+      RowBox[{
+       RowBox[{"Select", "[", 
+        RowBox[{
+         RowBox[{"Range", "[", "300000", "]"}], ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Length", "[", 
+            RowBox[{"FactorInteger", "[", "#", "]"}], "]"}], "\[Equal]", 
+           "4"}], "&"}]}], "]"}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Abs", "[", 
+          RowBox[{"#2", "-", "#1"}], "]"}], "<=", "1"}], "&"}]}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Cases", "[", 
+    RowBox[{"list", ",", 
+     RowBox[{"{", 
+      RowBox[{"_", ",", "_", ",", "_", ",", "_"}], "}"}]}], "]"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.728319930832062*^9, 3.7283201987201567`*^9}, {
+  3.7283202328589983`*^9, 3.7283202598949957`*^9}, {3.7283202937845087`*^9, 
+  3.7283204640225153`*^9}, {3.72832055579032*^9, 3.7283205647145433`*^9}, {
+  3.7283206271650343`*^9, 3.728320710524261*^9}, {3.7283207909022408`*^9, 
+  3.728320825726285*^9}},ExpressionUUID->"e5b08b03-f830-4c20-a192-\
+48649332f700"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"134043", ",", "134044", ",", "134045", ",", "134046"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"238203", ",", "238204", ",", "238205", ",", "238206"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"253894", ",", "253895", ",", "253896", ",", "253897"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"259368", ",", "259369", ",", "259370", ",", "259371"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.728319966825541*^9, 3.728320263663619*^9}, {
+  3.728320299131845*^9, 3.7283204701588287`*^9}, {3.7283206345083714`*^9, 
+  3.728320673996073*^9}, {3.728320704436103*^9, 3.728320712780706*^9}, {
+  3.7283207943338223`*^9, 
+  3.728320827710091*^9}},ExpressionUUID->"2a173cce-df3e-4443-a2e6-\
+1d249843978c"]
+}, Open  ]]
+},
+WindowSize->{792, 565},
+WindowMargins->{{210, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1210, 29, 426, "Text",ExpressionUUID->"03ae4cc5-ffe3-48e5-a3bd-25a95d63d13b"],
+Cell[CellGroupData[{
+Cell[1793, 53, 1159, 30, 94, "Input",ExpressionUUID->"e5b08b03-f830-4c20-a192-48649332f700"],
+Cell[2955, 85, 789, 20, 56, "Output",ExpressionUUID->"2a173cce-df3e-4443-a2e6-1d249843978c"]
+}, Open  ]]
+}
+]
+*)
+

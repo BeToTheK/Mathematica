@@ -1,0 +1,159 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5167,        151]
+NotebookOptionsPosition[      4103,        124]
+NotebookOutlinePosition[      4463,        140]
+CellTagsIndexPosition[      4420,        137]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+A number consisting entirely of ones is called a repunit. We shall define \
+R(k) to be a repunit of length k.
+
+For example, R(10) = 1111111111 = 11\[Times]41\[Times]271\[Times]9091, and \
+the sum of these prime factors is 9414.
+
+Find the sum of the first forty prime factors of R(109).
+
+This program doesnt get the answer due to the Large input (10^10^9) however \
+it does work for smaller numbers
+My idea was to manipulate the equation 10^n-1/9 into 10^k=1Mod9p and the \
+choose from the list the elements that are zero. Their position will be the \
+factor which we can sum together. But using Mathematica i cannot find a way \
+to produce the factors for a large input. I even let the program run all \
+night and didnt get an answer...
+
+
+func[n_] := (10^n - 1)/9
+FactorInteger[func[10]][[All, 1]]\
+\>", "Text",
+ CellChangeTimes->{{3.72839925367023*^9, 3.728399299710432*^9}, {
+  3.7284004655762405`*^9, 3.7284004841835294`*^9}, {3.728401737447647*^9, 
+  3.7284017377923613`*^9}, {3.7284017859669266`*^9, 3.7284017861502714`*^9}, {
+  3.7284021157524815`*^9, 3.7284021158934484`*^9}, {3.7284025807093625`*^9, 
+  3.728402615866397*^9}, {3.7284034170240774`*^9, 3.7284034173053446`*^9}, {
+  3.728741893051509*^9, 3.728742048535913*^9}, {3.728742374605398*^9, 
+  3.728742383426655*^9}},ExpressionUUID->"b9b0ec7e-5019-4c57-9a4c-\
+76a028aaf69b"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"11", ",", "41", ",", "271", ",", "9091"}], "}"}]], "Output",
+ CellChangeTimes->{{3.728402576365872*^9, 3.728402616069358*^9}, 
+   3.728403417649107*^9},ExpressionUUID->"e7f583a3-5528-4f8d-810b-\
+dcdc273b87c2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"x", "=", 
+   RowBox[{"Position", "[", 
+    RowBox[{
+     RowBox[{"Mod", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"10", "^", "10"}], "-", "1"}], ",", 
+       RowBox[{"9", "*", 
+        RowBox[{"Range", "[", "10000", "]"}]}]}], "]"}], ",", "0"}], "]"}]}], 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.7284032252215233`*^9, 3.7284032253465166`*^9}, {
+   3.7284042502419777`*^9, 3.7284042556747503`*^9}, {3.728404298660266*^9, 
+   3.7284044151039467`*^9}, {3.728742146495964*^9, 3.7287421554326153`*^9}, 
+   3.7287421911350517`*^9},ExpressionUUID->"cbfb7da6-37e1-4b7b-acd7-\
+6b164c874e9e"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", "1", "}"}], ",", 
+   RowBox[{"{", "11", "}"}], ",", 
+   RowBox[{"{", "41", "}"}], ",", 
+   RowBox[{"{", "271", "}"}], ",", 
+   RowBox[{"{", "451", "}"}], ",", 
+   RowBox[{"{", "2981", "}"}], ",", 
+   RowBox[{"{", "9091", "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.728742250611929*^9},ExpressionUUID->"bad92f5c-615d-4853-9686-\
+f9c7837fde73"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Select", "[", 
+  RowBox[{
+   RowBox[{"Flatten", "[", "x", "]"}], ",", "PrimeQ"}], "]"}]], "Input",
+ CellChangeTimes->{{3.72874231215937*^9, 
+  3.728742323153699*^9}},ExpressionUUID->"b68b88ce-2a61-4843-852f-\
+2d19582b1dd7"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"11", ",", "41", ",", "271", ",", "9091"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.728742323511774*^9},ExpressionUUID->"a0a1c9c1-7338-4281-8e34-\
+93823fbb236e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Total", "[", "%", "]"}]], "Input",
+ CellChangeTimes->{{3.7287423300351677`*^9, 
+  3.728742332329528*^9}},ExpressionUUID->"e6871d61-b189-4012-8600-\
+13cd3890ac73"],
+
+Cell[BoxData["9414"], "Output",
+ CellChangeTimes->{
+  3.728742332676627*^9},ExpressionUUID->"ad8fe570-e6d3-4e33-85a9-\
+c3af915c18bf"]
+}, Open  ]]
+},
+WindowSize->{1132, 804},
+WindowMargins->{{Automatic, 43}, {Automatic, 67}},
+FrontEndVersion->"11.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1349, 28, 334, "Text",ExpressionUUID->"b9b0ec7e-5019-4c57-9a4c-76a028aaf69b"],
+Cell[1910, 50, 249, 5, 34, "Output",ExpressionUUID->"e7f583a3-5528-4f8d-810b-dcdc273b87c2"],
+Cell[CellGroupData[{
+Cell[2184, 59, 647, 16, 52, "Input",ExpressionUUID->"cbfb7da6-37e1-4b7b-acd7-6b164c874e9e"],
+Cell[2834, 77, 405, 12, 34, "Output",ExpressionUUID->"bad92f5c-615d-4853-9686-f9c7837fde73"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3276, 94, 247, 6, 30, "Input",ExpressionUUID->"b68b88ce-2a61-4843-852f-2d19582b1dd7"],
+Cell[3526, 102, 202, 5, 34, "Output",ExpressionUUID->"a0a1c9c1-7338-4281-8e34-93823fbb236e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3765, 112, 186, 4, 30, "Input",ExpressionUUID->"e6871d61-b189-4012-8600-13cd3890ac73"],
+Cell[3954, 118, 133, 3, 34, "Output",ExpressionUUID->"ad8fe570-e6d3-4e33-85a9-c3af915c18bf"]
+}, Open  ]]
+}
+]
+*)
+

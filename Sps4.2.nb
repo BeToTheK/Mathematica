@@ -1,0 +1,101 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2757,         91]
+NotebookOptionsPosition[      2224,         71]
+NotebookOutlinePosition[      2568,         86]
+CellTagsIndexPosition[      2525,         83]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+This program finds the difference between total number Primes equal to 1Mod4 \
+and 3Mod4.\
+\>", "Text",
+ CellChangeTimes->{{3.727540003381823*^9, 3.727540022070092*^9}, {
+  3.727540392982872*^9, 3.7275403986397977`*^9}, {3.727540434110708*^9, 
+  3.7275404628367877`*^9}, {3.727540508687912*^9, 
+  3.7275405782980447`*^9}},ExpressionUUID->"c3b75666-97db-40b3-8a95-\
+fc4b01b5a091"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"list", " ", "=", " ", 
+   RowBox[{"Prime", "[", 
+    RowBox[{"Range", "[", "1000000", "]"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"x1", " ", "=", " ", 
+   RowBox[{"Length", "[", 
+    RowBox[{"Select", "[", 
+     RowBox[{"list", ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Mod", "[", 
+         RowBox[{"#", ",", "4"}], "]"}], "\[Equal]", "1"}], "&"}]}], "]"}], 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"x2", " ", "=", " ", 
+   RowBox[{"Length", "[", 
+    RowBox[{"Select", "[", 
+     RowBox[{"list", ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Mod", "[", 
+         RowBox[{"#", ",", "4"}], "]"}], "\[Equal]", "3"}], "&"}]}], "]"}], 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{"Subtract", "[", 
+  RowBox[{"x2", ",", "x1"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.727540003381823*^9, 3.727540022070092*^9}, {
+  3.727540392982872*^9, 3.7275403986397977`*^9}, {3.727540434110708*^9, 
+  3.7275404628367877`*^9}, {3.727540587580409*^9, 
+  3.7275406203310127`*^9}},ExpressionUUID->"e5261baf-1493-4551-9ce5-\
+51711f6a5b24"],
+
+Cell[BoxData["403"], "Output",
+ CellChangeTimes->{{3.727540613814417*^9, 
+  3.727540623264413*^9}},ExpressionUUID->"61b76362-30b8-43f3-96d5-\
+cb36a66778dd"]
+}, Open  ]]
+},
+WindowSize->{759, 833},
+WindowMargins->{{Automatic, 126}, {53, Automatic}},
+FrontEndVersion->"11.1 for Microsoft Windows (64-bit) (April 18, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 389, 8, 30, "Text", "ExpressionUUID" -> \
+"c3b75666-97db-40b3-8a95-fc4b01b5a091"],
+Cell[CellGroupData[{
+Cell[972, 32, 1077, 31, 88, "Input", "ExpressionUUID" -> \
+"e5261baf-1493-4551-9ce5-51711f6a5b24"],
+Cell[2052, 65, 156, 3, 30, "Output", "ExpressionUUID" -> \
+"61b76362-30b8-43f3-96d5-cb36a66778dd"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
